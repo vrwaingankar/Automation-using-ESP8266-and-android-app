@@ -5,11 +5,8 @@
 #include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
 
-#define FIREBASE_HOST "relay-control-12fa5.firebaseio.com" //Your Firebase Project URL without "http:", "\" and "/"
-#define FIREBASE_AUTH "qeIlJtDrXdbhGF0LUIdtZLnYyi5aJeqCjxaQRXZN" //Your Firebase Database Secret goes here
-//#define WIFI_SSID "Vinit's One plus 6"         //WiFi SSID name for which NodeMCU connects
-//#define WIFI_PASSWORD "one_plus_6_it_is"      //SSID Password of your wifi network
-
+#define FIREBASE_HOST "  " //Your Firebase Project URL without "http:", "\" and "/"
+#define FIREBASE_AUTH "  " //Your Firebase Database Secret goes here
 
 #define Relay1 14  //D5
 #define Relay2 12  //D6
@@ -24,13 +21,9 @@ void setup()
   pinMode(Relay2,OUTPUT);
   pinMode(Relay3,OUTPUT);
   pinMode(Relay4,OUTPUT);
-//  digitalWrite(Relay1,HIGH);
-//  digitalWrite(Relay2,HIGH);
-//  digitalWrite(Relay3,HIGH);
-//  digitalWrite(Relay4,HIGH);
-  //WiFi.begin(WIFI_SSID,WIFI_PASSWORD);
+
   WiFiManager wifiManager;
-  wifiManager.autoConnect("AutoConnectAP");
+  wifiManager.autoConnect("Vinit's ESP8266");
   
   Serial.print("connecting");
   while (WiFi.status()!=WL_CONNECTED){
@@ -42,11 +35,6 @@ void setup()
   Serial.println(WiFi.localIP());
 
   Firebase.begin(FIREBASE_HOST,FIREBASE_AUTH);
-  //Here the varialbe"FB1","FB2","FB3" and "FB4" needs to be the one which is used in our Firebase and MIT App Inventor
-//  Firebase.setInt("FB1",0);                     
-//  Firebase.setInt("FB2",0); 
-//  Firebase.setInt("FB3",0); 
-//  Firebase.setInt("FB4",0); 
   
 }
 void firebasereconnect()
